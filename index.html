@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Senay Mesfin — Enterprise AI &amp; Integrations Engineer | AI Solutions &amp; Forward Deployed</title>
-<meta name="description" content="Enterprise AI &amp; Integrations Engineer building production AI systems: model-agnostic LLM copilots with RAG and evaluation-gated CI/CD, full-stack AI products, and enterprise integrations. Flagship: Enterprise AI Copilot Platform, MindNest, FTD Quantitative Research.">
+<meta name="description" content="I build AI-powered software that solves real business problems — enterprise copilots, intelligent dashboards, and production AI applications. Flagship: Enterprise AI Copilot Platform (RAG, evaluation-gated CI/CD), MindNest, FTD Quantitative Research.">
 <meta name="author" content="Senay Mesfin">
 <meta name="keywords" content="AI Solutions Engineer, Forward Deployed Engineer, Enterprise AI Engineer, Applied AI Engineer, Customer Engineer, AI Integration, RAG, LLM, FastAPI, Claude API, pgvector, Next.js, Supabase, ERP integration, QuickBooks, NetSuite">
 <meta name="theme-color" content="#0b0f17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f17'/%3E%3Ctext x='16' y='22' font-family='-apple-system,sans-serif' font-size='15' font-weight='700' fill='%234f9cf9' text-anchor='middle'%3ESM%3C/text%3E%3C/svg%3E">
 <link rel="canonical" href="https://ftd-minds.github.io/portfolio/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ftd-minds.github.io/portfolio/">
 <meta property="og:site_name" content="Senay Mesfin — Portfolio">
 <meta property="og:title" content="Senay Mesfin — Enterprise AI &amp; Integrations Engineer">
-<meta property="og:description" content="Production AI systems, enterprise integrations, and full-stack AI products. Flagship: Enterprise AI Copilot Platform (RAG, evaluation-gated CI/CD), MindNest, FTD Quantitative Research.">
+<meta property="og:description" content="AI-powered software that solves real business problems — enterprise copilots, intelligent dashboards, and production AI applications. Flagship: Enterprise AI Copilot Platform, MindNest, FTD Quantitative Research.">
 <meta property="og:image" content="https://avatars.githubusercontent.com/FTD-minds">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Senay Mesfin — Enterprise AI &amp; Integrations Engineer">
@@ -34,10 +35,16 @@
   .btn{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;background:var(--card);transition:.2s}
   .btn:hover{border-color:var(--acc);transform:translateY(-1px)}
   .btn.primary{background:var(--acc);border-color:var(--acc);color:#04101f;font-weight:600}
+  .btn.primary:hover{box-shadow:0 6px 22px -8px rgba(79,156,249,.6)}
+  .btn.gh{color:var(--acc2);border-color:rgba(67,214,163,.4)}
+  .btn.gh:hover{border-color:var(--acc2);box-shadow:0 0 18px -6px rgba(67,214,163,.5)}
+  :focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
   h2{font-size:1.3rem;margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
   .lede{color:var(--mut);font-size:.9rem;margin:-8px 0 16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:#2c405f;transform:translateY(-2px)}
   .card h3{font-size:1.1rem}
+  .card h3.pt{color:var(--acc2);font-size:1.15rem;letter-spacing:-.01em}
   .card .meta{color:var(--acc);font-size:.85rem;margin:4px 0 12px}
   .card .links{margin-top:16px}
   .card .btn{padding:8px 14px;font-size:.9rem}
@@ -61,7 +68,7 @@
   <header>
     <h1>Senay Mesfin</h1>
     <div class="tag">Enterprise AI &amp; Integrations Engineer</div>
-    <p class="sub">I turn ambiguous enterprise system problems into deployed, trustworthy AI software — pairing 7+ years of ERP/accounting integration and customer-facing engineering with hands-on AI systems development.</p>
+    <p class="sub">I build AI-powered software that solves real business problems — from enterprise copilots and intelligent dashboards to production AI applications. Enterprise AI systems, customer-facing software, and deep integrations: designed, deployed, and verifiable below.</p>
     <nav class="links" aria-label="Primary">
       <a class="btn primary" href="https://copilot-platform.onrender.com" aria-label="Launch the Enterprise AI Copilot Platform live demo">▶ Launch AI Copilot</a>
       <a class="btn" href="#projects" aria-label="Jump to flagship engineering projects">Projects</a>
@@ -73,9 +80,8 @@
   <p class="lede">Three end-to-end systems — each live-verifiable, documented, and built with evaluation and testing discipline.</p>
 
   <div class="card">
-    <h3>Enterprise AI Copilot Platform</h3>
-    <div class="meta">Python · FastAPI · Docker · pgvector · Anthropic / OpenAI · GitHub Actions</div>
-    <p style="color:var(--mut)">A modular, model-agnostic platform for enterprise AI copilots — each module is an independently deployable, evaluated AI system over shared platform services. Module 1, the <strong>ERP Sync Reconciliation Copilot</strong>, diagnoses why an ERP/accounting sync failed (item-vs-COA mapping, undeposited funds, Stripe/ACH payout mismatches, Canada/CRA tax sync) and explains the root cause with citations — built from problems I solved by hand for years.</p>
+    <h3 class="pt">Enterprise AI Copilot Platform</h3>
+    <p style="color:var(--mut);margin-top:8px">When a company's payment, accounting, and ERP systems disagree, someone has to find out why — slowly, by hand. This platform diagnoses the failure in seconds: an AI copilot that explains the root cause, shows the math, and cites the exact knowledge it used, so teams can trust the answer. Built as a modular platform where each business domain is an independently deployable, evaluated copilot — Module 1 (<strong>ERP Sync Reconciliation</strong>) is live below.</p>
     <div class="demo-h">Engineering challenges solved</div>
     <ul>
       <li><strong>Model-agnostic provider router</strong> (Anthropic/OpenAI → Bedrock/Vertex) — swap models by configuration, not code.</li>
@@ -83,20 +89,21 @@
       <li><strong>Evaluation-gated CI/CD</strong> — quality enforced in the pipeline; hermetic, secret-free builds.</li>
       <li><strong>Architecture Decision Records</strong> documenting platform and design trade-offs.</li>
     </ul>
-    <div class="demo-h">Demonstrated engineering</div>
+    <div class="demo-h">Technology stack</div>
+    <div class="meta" style="margin:6px 0 0">Python · FastAPI · Docker · pgvector · Anthropic / OpenAI · GitHub Actions</div>
+    <div class="demo-h">Engineering skills demonstrated</div>
     <div class="chips">
       <span class="chip">Architecture</span><span class="chip">System Design</span><span class="chip">RAG</span><span class="chip">Vector Search</span><span class="chip">Evaluation</span><span class="chip">CI/CD</span><span class="chip">API Design</span><span class="chip">Deployment</span><span class="chip">Documentation</span>
     </div>
     <div class="links">
       <a class="btn primary" href="https://copilot-platform.onrender.com" aria-label="Live demo — Enterprise AI Copilot Platform">▶ Live Demo</a>
-      <a class="btn" href="https://github.com/FTD-minds/copilot-platform" aria-label="GitHub repository — Enterprise AI Copilot Platform">GitHub</a>
+      <a class="btn gh" href="https://github.com/FTD-minds/copilot-platform" aria-label="GitHub repository — Enterprise AI Copilot Platform">GitHub</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>MindNest Showcase</h3>
-    <div class="meta">Next.js 14 · TypeScript · Supabase (Postgres + RLS + pgvector) · Claude · Stripe · Vercel</div>
-    <p style="color:var(--mut)">An AI-powered parenting companion — a conversational AI coach wrapped in a full subscription product — designed and built end-to-end as sole engineer. The public repository is a sanitized showcase of the real, deployed application: proprietary prompts and the curated knowledge corpus are replaced with clearly labeled placeholders; all engineering is intact and runnable.</p>
+    <h3 class="pt">MindNest Showcase</h3>
+    <p style="color:var(--mut);margin-top:8px">An AI parenting coach wrapped in a complete subscription product — chat guidance, developmental activities, milestone tracking, and billing — designed and built end-to-end as sole engineer, and deployed. The public repository is a sanitized showcase of the real application: proprietary prompts and the curated knowledge corpus are replaced with clearly labeled placeholders; every piece of engineering is intact and runnable.</p>
     <div class="demo-h">Engineering challenges solved</div>
     <ul>
       <li><strong>Retrieval-grounded AI</strong> — RAG pipeline with Voyage embeddings + pgvector cosine search and deterministic per-user context assembly.</li>
@@ -104,32 +111,35 @@
       <li><strong>Production billing</strong> — Stripe checkout with a webhook handler as the sole writer of subscription state.</li>
       <li><strong>CI quality gate</strong> — lint, type-check, unit tests, a deterministic eval harness, and secret scanning.</li>
     </ul>
-    <div class="demo-h">Demonstrated engineering</div>
+    <div class="demo-h">Technology stack</div>
+    <div class="meta" style="margin:6px 0 0">Next.js 14 · TypeScript · Supabase (Postgres + RLS + pgvector) · Claude · Stripe · Vercel</div>
+    <div class="demo-h">Engineering skills demonstrated</div>
     <div class="chips">
       <span class="chip">Full-Stack Architecture</span><span class="chip">RAG</span><span class="chip">Vector Search</span><span class="chip">Authentication</span><span class="chip">Payments Integration</span><span class="chip">Testing</span><span class="chip">CI/CD</span><span class="chip">Documentation</span>
     </div>
     <div class="links">
       <a class="btn primary" href="https://mindnest-delta.vercel.app" aria-label="Live demo — MindNest">▶ Live Demo</a>
-      <a class="btn" href="https://github.com/FTD-minds/mindnest-showcase" aria-label="GitHub repository — MindNest Showcase">GitHub</a>
+      <a class="btn gh" href="https://github.com/FTD-minds/mindnest-showcase" aria-label="GitHub repository — MindNest Showcase">GitHub</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>FTD Quantitative Research</h3>
-    <div class="meta">Python 3.10+ · zero runtime dependencies · 22-test suite · MIT</div>
-    <p style="color:var(--mut)">A deterministic, strategy-agnostic backtesting engine built to answer one question rigorously: does a popular retail trading method contain a real edge? The platform reached a documented <strong>negative result</strong> — and honored it. The engineering discipline used to get there honestly is the asset on display.</p>
+    <h3 class="pt">FTD Quantitative Research</h3>
+    <p style="color:var(--mut);margin-top:8px">A deterministic, strategy-agnostic backtesting engine built to answer one question rigorously: does a popular retail trading method contain a real edge? The platform reached a documented <strong>negative result</strong> — and honored it, killing the strategy instead of curve-fitting a win. The engineering discipline used to get there honestly is the asset on display.</p>
     <div class="demo-h">Engineering challenges solved</div>
     <ul>
       <li><strong>Byte-for-byte reproducible</strong> backtest runs, hash-stable under SHA-256.</li>
       <li><strong>Anti-curve-fit methodology</strong> — pre-registration, out-of-sample validation, transaction-cost modeling, random-entry research harness.</li>
       <li><strong>Clean strategy interface</strong> keeping trading logic behind a seam; test suite runs on the standard library alone.</li>
     </ul>
-    <div class="demo-h">Demonstrated engineering</div>
+    <div class="demo-h">Technology stack</div>
+    <div class="meta" style="margin:6px 0 0">Python 3.10+ · zero runtime dependencies · 22-test suite · MIT</div>
+    <div class="demo-h">Engineering skills demonstrated</div>
     <div class="chips">
       <span class="chip">Research Engineering</span><span class="chip">Deterministic Systems</span><span class="chip">Evaluation Methodology</span><span class="chip">Testing</span><span class="chip">Interface Design</span><span class="chip">Documentation</span>
     </div>
     <div class="links">
-      <a class="btn" href="https://github.com/FTD-minds/ftd-quantitative-research" aria-label="GitHub repository — FTD Quantitative Research">GitHub</a>
+      <a class="btn gh" href="https://github.com/FTD-minds/ftd-quantitative-research" aria-label="GitHub repository — FTD Quantitative Research">GitHub</a>
       <a class="btn" href="https://github.com/FTD-minds/ftd-quantitative-research/blob/main/docs/case-study.md" aria-label="Case study — FTD Quantitative Research">Case Study</a>
     </div>
   </div>
@@ -138,10 +148,16 @@
   <p class="lede">Additional engineering work demonstrating breadth beyond the flagship repositories.</p>
 
   <div class="card">
-    <h3>BrainBloom</h3>
+    <h3 class="pt">BrainBloom</h3>
     <div class="meta">Interactive prototype · frontend product architecture</div>
-    <p style="color:var(--mut)">AI-powered brain-development app for children ages 1–8. An interactive prototype demonstrating adaptive learning UX, age-gated learning paths, a Brain Score dashboard, and AI product thinking across a complete interactive frontend architecture. The AI personalization is simulated to demonstrate the product experience — there is no production AI backend.</p>
-    <div class="demo-h">Experience demonstrated</div>
+    <p style="color:var(--mut)">AI-powered brain-development app for children ages 1–8 — a complete product experience showing how AI-personalized early education could work, built as an interactive frontend prototype. The AI personalization is simulated to demonstrate the product experience — there is no production AI backend.</p>
+    <div class="demo-h">Engineering challenges solved</div>
+    <ul>
+      <li><strong>Age-gated learning paths</strong> — content tracks structured and gated across ages 1–8.</li>
+      <li><strong>Brain Score dashboard</strong> — a parent-facing progress model rendered as an interactive dashboard.</li>
+      <li><strong>Simulated adaptive flows</strong> — AI-personalized activity sequencing demonstrated entirely in frontend state.</li>
+    </ul>
+    <div class="demo-h">Skills demonstrated</div>
     <div class="chips">
       <span class="chip">Product Design</span><span class="chip">Frontend Engineering</span><span class="chip">UX Design</span><span class="chip">State Management</span><span class="chip">Educational Technology</span><span class="chip">AI Product Design</span>
     </div>
@@ -151,10 +167,16 @@
   </div>
 
   <div class="card">
-    <h3>Internal AI Proposal — The Vitamin Shoppe</h3>
+    <h3 class="pt">Internal AI Proposal — The Vitamin Shoppe</h3>
     <div class="meta">Interactive proposal with simulated demonstrations</div>
-    <p style="color:var(--mut)">Interactive proposal demonstrating AI opportunities across real enterprise systems. Built from enterprise workflow analysis and AI opportunity identification, then presented to IT leadership — my Director, Manager, and engineering team — as a stakeholder presentation backed by an interactive prototype. All projections and demonstrations are simulated for illustration; this represents initiative, not employer software. No employer code or confidential systems are published.</p>
-    <div class="demo-h">Experience demonstrated</div>
+    <p style="color:var(--mut)">Interactive proposal demonstrating AI opportunities across real enterprise systems, presented to IT leadership — my Director, Manager, and engineering team. This is initiative, not employer software: all projections and demonstrations are simulated for illustration, and no employer code or confidential systems are published.</p>
+    <div class="demo-h">Engineering challenges solved</div>
+    <ul>
+      <li><strong>Enterprise workflow analysis</strong> — mapped real day-to-day workflows to concrete AI opportunities.</li>
+      <li><strong>Leadership-ready communication</strong> — technical depth translated into an interactive walkthrough for a non-engineering audience.</li>
+      <li><strong>Honest demonstration design</strong> — every simulated metric explicitly labeled as illustrative.</li>
+    </ul>
+    <div class="demo-h">Skills demonstrated</div>
     <div class="chips">
       <span class="chip">Enterprise AI</span><span class="chip">Stakeholder Communication</span><span class="chip">Interactive Prototype</span><span class="chip">Workflow Analysis</span><span class="chip">Frontend Engineering</span>
     </div>
@@ -164,10 +186,16 @@
   </div>
 
   <div class="card">
-    <h3>DialysisOS</h3>
+    <h3 class="pt">DialysisOS</h3>
     <div class="meta">Claude API · Google APIs · OAuth</div>
-    <p style="color:var(--mut)">AI-powered executive operations dashboard built for a dialysis-center operator, currently live at one center. Uses Claude API orchestration with Google API integrations to power executive dashboards, business-intelligence views, operational reporting, and natural-language querying. Business operations only — no HIPAA or patient-data processing.</p>
-    <div class="demo-h">Experience demonstrated</div>
+    <p style="color:var(--mut)">AI-powered executive operations dashboard built for a dialysis-center operator, currently live at one center — leadership asks questions in plain language and gets operational answers, reports, and business-intelligence views. Business operations only — no HIPAA or patient-data processing.</p>
+    <div class="demo-h">Engineering challenges solved</div>
+    <ul>
+      <li><strong>Claude API orchestration</strong> — natural-language executive reporting over real operational data.</li>
+      <li><strong>Google API integration</strong> — OAuth-authenticated access to the operator's workspace data.</li>
+      <li><strong>Deliberate scope boundary</strong> — business operations only; patient data (PHI) excluded by design.</li>
+    </ul>
+    <div class="demo-h">Skills demonstrated</div>
     <div class="chips">
       <span class="chip">AI Integration</span><span class="chip">Claude API</span><span class="chip">Google APIs</span><span class="chip">OAuth</span><span class="chip">Executive Dashboards</span><span class="chip">Business Intelligence</span>
     </div>
