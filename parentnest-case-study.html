@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParentNest Case Study · Senay Mesfin</title>
+<meta name="description" content="Engineering case study: ParentNest, a retrieval-grounded AI parenting product with an RLS-first security model, single-writer Stripe billing, and CI-gated evaluation. Designed and built end to end by Senay Mesfin.">
+<meta name="author" content="Senay Mesfin">
+<meta name="theme-color" content="#0b0f17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f17'/%3E%3Ctext x='16' y='22' font-family='-apple-system,sans-serif' font-size='15' font-weight='700' fill='%234f9cf9' text-anchor='middle'%3ESM%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://ftd-minds.github.io/portfolio/parentnest-case-study.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ftd-minds.github.io/portfolio/parentnest-case-study.html">
+<meta property="og:site_name" content="Senay Mesfin — Portfolio">
+<meta property="og:title" content="ParentNest Case Study · Senay Mesfin">
+<meta property="og:description" content="Retrieval-grounded AI parenting product: RLS-first security, single-writer Stripe billing, deterministic eval harness gated in CI.">
+<meta property="og:image" content="https://avatars.githubusercontent.com/FTD-minds">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ParentNest Case Study · Senay Mesfin">
+<meta name="twitter:description" content="Engineering case study: RAG grounding, RLS-first security, single-writer billing, CI-gated evaluation.">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/FTD-minds">
+<style>
+:root{--bg:#0b0f17;--card:#141b2b;--ink:#e8edf5;--mut:#9fb0c8;--acc:#4f9cf9;--acc2:#16a34a;--line:#22304a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:48px 24px}
+header{margin-bottom:40px}
+h1{font-size:2.2rem;letter-spacing:-.02em}
+.tag{color:var(--acc2);font-weight:600;margin-top:6px}
+.tagline{color:var(--mut);font-weight:500;font-size:.95rem;margin-top:4px}
+.sub{color:var(--mut);margin-top:14px;max-width:680px}
+.links{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:10px;color:var(--ink);text-decoration:none;background:var(--card);transition:.2s}
+.btn:hover{border-color:var(--acc);transform:translateY(-1px)}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:#04101f;font-weight:600}
+.btn.primary:hover{box-shadow:0 6px 22px -8px rgba(79,156,249,.6)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:4px}
+h2{font-size:1.3rem;margin:40px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:1.05rem;margin-top:24px}
+p.body{color:var(--mut);margin-top:10px}
+ul{margin:10px 0 0 18px;color:var(--mut)}
+li{margin:6px 0}
+.demo-h{color:var(--acc2);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:16px}
+.note{color:var(--mut);font-size:.85rem;margin-top:12px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--ink);background:#0e1626}
+td{color:var(--mut)}
+.fig{background:#0e1626;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;overflow-x:auto}
+.figcap{color:var(--mut);font-size:.85rem;margin-top:10px}
+pre{background:#0e1626;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:.85rem;color:var(--ink);margin-top:10px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+footer{margin-top:48px;color:var(--mut);font-size:.85rem;text-align:center}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+<h1>ParentNest</h1>
+<div class="tag">Engineering Case Study</div>
+<div class="tagline">AI Parenting Companion · Next.js 14 · Supabase · Claude · Stripe</div>
+<p class="sub">Design and build of a retrieval-grounded AI product with a security-first data layer, production billing, and CI-gated quality. Built solo. The source repository is private; this page is the public engineering record.</p>
+<nav class="links" aria-label="Case study links">
+<a class="btn primary" href="https://mindnest-delta.vercel.app" aria-label="Live demo — ParentNest"><span aria-hidden="true">▶</span> Live Demo</a>
+<a class="btn" href="./" aria-label="Back to portfolio">Portfolio</a>
+<a class="btn" href="./#contact" aria-label="Jump to contact information"><span aria-hidden="true">✉</span> Contact</a>
+</nav>
+</header>
+<h2>About the name</h2>
+<p class="body">ParentNest was designed and built under the internal project name MindNest. The private codebase, its architecture decision records, and its internal documentation use that name; the product, the live demo, and this page use ParentNest. It is the same system and the same engineering record, and this note is the only place the two names need to meet.</p>
+
+<h2>The problem</h2>
+<p class="body">New parents have urgent, specific questions at 3 a.m. and a low tolerance for generic or wrong answers. A conversational AI coach for this audience has to be grounded in vetted developmental content rather than model memory, has to protect unusually sensitive data (children's ages and development, parent mental-health check-ins), and has to behave safely in its wording: no alarming or diagnostic language about a child's development, ever.</p>
+
+<h2>The product</h2>
+<p class="body">ParentNest pairs parents with Nest, a conversational AI coach, inside a complete subscription product: daily age-adaptive developmental activities, a milestone tracker, parent wellness check-ins, a moderated community, multi-child and twins support, age-appropriate product recommendations, and an admin console. Three plans (monthly, annual, lifetime) sit behind a free tier with a daily message allowance of 10. Feature status, stated plainly:</p>
+<table>
+<tr><th>Feature</th><th>Documented in code</th><th>Demonstrated in the live app</th></tr>
+<tr><td>Nest AI coach (chat, optional voice replies)</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Daily developmental activities</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Milestone tracker</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Wellness check-ins</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Multi-child and twins profiles</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Moderated community</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Product recommendations</td><td>Yes</td><td>Not yet verified (behind signup)</td></tr>
+<tr><td>Knowledge base (RAG pipeline)</td><td>Yes</td><td>Internal; visible only through coach replies, not yet verified</td></tr>
+<tr><td>Admin console</td><td>Yes</td><td>Not verified; described in text only by design</td></tr>
+<tr><td>Subscriptions (Stripe checkout and webhooks)</td><td>Yes</td><td>Not verified; no test purchase made</td></tr>
+</table>
+<p class="note">The live deployment's public landing page is reachable without an account and was verified on Oct 28, 2026. Everything interactive sits behind signup, so until an account-based check is approved, the honest classification for the features above is "documented in code," not "demonstrated."</p>
+
+<h2>My contributions</h2>
+<p class="body">I designed and built the system end to end as the sole engineer: the full-stack architecture, the Postgres schema and its security model, the retrieval pipeline and prompt-context assembly, the Stripe billing integration, the test and evaluation harnesses, the CI pipeline, and the documentation set, including five Architecture Decision Records that record the reasoning and trade-offs behind the major choices.</p>
+
+<h2>Architecture</h2>
+<div class="fig">
+<svg viewBox="0 0 880 470" width="100%" role="img" aria-label="ParentNest architecture diagram" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4f9cf9"/></marker></defs>
+<g fill="#141b2b" stroke="#22304a" stroke-width="1.5">
+<rect x="20" y="30" width="180" height="64" rx="10"/>
+<rect x="270" y="30" width="210" height="64" rx="10"/>
+<rect x="545" y="30" width="315" height="64" rx="10"/>
+<rect x="20" y="185" width="170" height="60" rx="10"/>
+<rect x="225" y="185" width="250" height="60" rx="10"/>
+<rect x="510" y="185" width="180" height="60" rx="10"/>
+<rect x="720" y="185" width="140" height="60" rx="10"/>
+<rect x="70" y="330" width="220" height="60" rx="10"/>
+<rect x="330" y="330" width="220" height="60" rx="10"/>
+<rect x="590" y="330" width="220" height="60" rx="10"/>
+</g>
+<g fill="#e8edf5" font-size="14" font-weight="600">
+<text x="110" y="58" text-anchor="middle">Browser</text>
+<text x="375" y="58" text-anchor="middle">middleware.ts</text>
+<text x="702" y="58" text-anchor="middle">Route handlers · app/api/*</text>
+<text x="105" y="211" text-anchor="middle">Supabase Auth</text>
+<text x="350" y="211" text-anchor="middle">Postgres + RLS + pgvector</text>
+<text x="600" y="211" text-anchor="middle">Edge Function</text>
+<text x="790" y="211" text-anchor="middle">Stripe</text>
+<text x="180" y="356" text-anchor="middle">Claude Haiku 4.5</text>
+<text x="440" y="356" text-anchor="middle">Voyage AI · voyage-3</text>
+<text x="700" y="356" text-anchor="middle">ElevenLabs</text>
+</g>
+<g fill="#9fb0c8" font-size="11.5">
+<text x="110" y="78" text-anchor="middle">Next.js client components</text>
+<text x="375" y="78" text-anchor="middle">session + route protection · Vercel Edge</text>
+<text x="702" y="78" text-anchor="middle">Next.js server · Vercel functions</text>
+<text x="350" y="231" text-anchor="middle">app data + knowledge embeddings</text>
+<text x="600" y="231" text-anchor="middle">moderate-post</text>
+<text x="790" y="231" text-anchor="middle">checkout + webhooks</text>
+<text x="180" y="376" text-anchor="middle">coaching + generation</text>
+<text x="440" y="376" text-anchor="middle">embeddings</text>
+<text x="700" y="376" text-anchor="middle">voice synthesis</text>
+</g>
+<g stroke="#4f9cf9" stroke-width="1.5" fill="none">
+<path d="M200,62 L262,62" marker-end="url(#ar)"/>
+<path d="M480,62 L537,62" marker-end="url(#ar)"/>
+<path d="M620,94 L620,140 L380,140 L380,177" marker-end="url(#ar)"/>
+<path d="M580,94 L580,150 L130,150 L130,177" marker-end="url(#ar)"/>
+<path d="M820,94 L820,177" marker-end="url(#ar)"/>
+<path d="M712,245 L712,290 L800,290 L800,253" stroke-dasharray="5,4" marker-end="url(#ar)"/>
+<path d="M475,215 L502,215" marker-end="url(#ar)"/>
+<path d="M600,245 L600,285 L200,285 L200,322" marker-end="url(#ar)"/>
+<path d="M660,94 L660,300 L450,300 L450,322" marker-end="url(#ar)"/>
+<path d="M760,94 L760,322" marker-end="url(#ar)"/>
+</g>
+<g fill="#9fb0c8" font-size="11">
+<text x="722" y="272">webhook (service_role)</text>
+<text x="30" y="130">anon-key reads (RLS)</text>
+</g>
+<path d="M105,94 L105,177" stroke="#4f9cf9" stroke-width="1.5" stroke-dasharray="5,4" fill="none" marker-end="url(#ar)"/>
+</svg>
+<p class="figcap">System overview: one Next.js application on Vercel, backed by Supabase (Auth, Postgres with Row Level Security and pgvector, one moderation Edge Function), three AI services, and Stripe. Rendered from the project's architecture documentation.</p>
+</div>
+<p class="body">One Next.js 14 (App Router) TypeScript application, strict mode on, deployed on Vercel, serving the UI and 32 server-side API route handlers from a single deployable unit. Supabase provides Auth, Postgres with Row Level Security, Storage, and the Edge Function. The codebase is roughly 13,800 lines of TypeScript/TSX and 1,400 lines of SQL across 22 schema migrations. On each Nest request, middleware refreshes the session and gates the route; the handler resolves the user, checks the free-tier limit against subscription state, retrieves grounding passages by vector similarity, assembles a deterministic per-user context block, and only then calls the model.</p>
+
+<h2>Engineering decisions</h2>
+
+<h3>Decision 1: authorization lives in the database (ADR-0002)</h3>
+<p class="body">Because the data is sensitive, per-user isolation is enforced by Postgres Row Level Security rather than by application code alone: 37 RLS policies across every user-facing table, with the browser holding only an anon key that can touch the signed-in user's own rows. The reasoning, recorded in the ADR, is that a bug in an API route cannot trivially leak another family's data when the database itself refuses the rows.</p>
+
+<h3>Decision 2: answers are grounded, and retrieved text is untrusted (ADR-0003)</h3>
+<p class="body">The coach's guidance is grounded in a curated knowledge base embedded with Voyage <code>voyage-3</code> (1024 dimensions) and stored in pgvector inside the same Postgres, so there is no separate vector database to operate and retrieval inherits the same auth and RLS model. Retrieved passages are injected as grounding context and are explicitly treated as untrusted input: the system prompt never executes instructions embedded in retrieved content. That is a deliberate prompt-injection boundary, not an oversight.</p>
+
+<h3>Decision 3: billing state has exactly one writer (ADR-0005)</h3>
+<p class="body">Subscription state decides who gets Premium, so a client must never be able to grant it to itself. Stripe is the source of truth; the webhook handler is the only code path that mutates subscription state. It verifies every event against the webhook secret before writing, and it writes with the server-only service_role key while RLS forbids client writes to the subscriptions table entirely. Entitlements cannot be forged from the browser.</p>
+<p class="body">A fourth decision worth naming: one pinned model, <code>claude-haiku-4-5-20251001</code>, at every AI call site (ADR-0004), chosen for predictable latency and unit economics on a free tier, with the ID written explicitly in code so a change is a deliberate, greppable event.</p>
+
+<h2>Testing and reliability</h2>
+<p class="body">Quality is gated in CI on every push, in two jobs. The first runs install, ESLint, TypeScript type-checking, the unit tests, and a production build; the second runs a gitleaks secret scan. The unit suite is 37 tests across the four riskiest areas: context assembly, auth middleware, subscription-status logic, and utilities. More unusual is the deterministic eval harness: before any text reaches the model, the app assembles a per-user context block that encodes product safety rules, and the harness executes the real assembly code against cases that assert those invariants. Expecting parents are never addressed as "mama" and never routed into born-baby logic; dads and partners are addressed by first name; missing data is surfaced honestly instead of fabricated; flagged milestones are framed gently and never with the words "delayed", "behind", or "problem". A failing case fails the build. The harness is deliberately honest about its limits: it checks deterministic code, and does not pretend to score the model's generated replies.</p>
+
+<h2>Demonstrated results</h2>
+<p class="body">Everything here can be checked without an account or any access from me. The live product's landing page is public and reachable anonymously today, under the ParentNest brand. The current source commit passes the full CI pipeline described above, including the secret scan, and the baseline commit before it passed as well. The engineering artifacts are concrete and countable: 5 ADRs, 22 migrations, 37 RLS policies, 32 API route handlers, 37 unit tests, and a deterministic eval harness gating merges. No user counts, revenue figures, or performance numbers are cited: the demo landing page carries marketing language, and marketing copy is not engineering evidence.</p>
+
+<h2>Lessons learned</h2>
+<ul>
+<li>For AI products, the testable surface is not only the model: the deterministic layers around it (context assembly, retrieval, entitlement logic) are where safety and correctness can actually be guaranteed, so that is where the tests belong.</li>
+<li>Security models are cheapest when they are structural: RLS and a single-writer billing path removed whole categories of bugs instead of adding review burden.</li>
+<li>A pinned, explicit model ID looks like a small thing until you price a free tier: predictability of cost and tone is a feature, and drift is a bug.</li>
+</ul>
+
+<h2>Exhibits (sanitized)</h2>
+<div class="demo-h">RLS policy, from the schema</div>
+<pre>CREATE POLICY "subscriptions: select own"
+  ON public.subscriptions FOR SELECT
+  USING (auth.uid() = user_id);</pre>
+<div class="demo-h">Webhook handler, first step</div>
+<p class="body">The Stripe webhook handler reads the <code>stripe-signature</code> header and verifies the event with <code>stripe.webhooks.constructEvent</code> against the webhook secret, returning HTTP 400 on any verification failure, before any subscription state is touched.</p>
+<div class="demo-h">One eval case</div>
+<p class="body">An expecting parent at week 24 must produce a context block containing "Currently pregnant, week 24 of 40" and prenatal guidance, and must not contain born-baby guidance or a baby's age.</p>
+
+<footer>Built in public · <a href="https://github.com/FTD-minds/portfolio" aria-label="View the source of this portfolio on GitHub">View source on GitHub</a> · <a href="./" aria-label="Back to portfolio">Back to portfolio</a></footer>
+</main>
+</body>
+</html>
